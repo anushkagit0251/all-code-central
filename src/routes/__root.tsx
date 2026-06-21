@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "PromptMaster AI — Generate Perfect Prompts in Seconds" },
+      { name: "description", content: "Generate professional AI prompts for ChatGPT, Claude, Gemini, Midjourney, Cursor, and more. Powered by Gemini AI." },
+      { name: "author", content: "PromptMaster AI" },
+      { property: "og:title", content: "PromptMaster AI — Generate Perfect Prompts in Seconds" },
+      { property: "og:description", content: "Generate professional AI prompts for ChatGPT, Claude, Gemini, Midjourney, Cursor, and more. Powered by Gemini AI." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@PromptMasterAI" },
     ],
     links: [
       {
