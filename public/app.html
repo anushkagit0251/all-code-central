@@ -878,29 +878,9 @@ function nav(page, el) {
 function openSidebar() { document.getElementById('sidebar').classList.add('open'); document.getElementById('menu-overlay').classList.add('show'); }
 function closeSidebar() { document.getElementById('sidebar').classList.remove('open'); document.getElementById('menu-overlay').classList.remove('show'); }
 
-// ===== API KEY =====
-function checkApiKey() {
-  const key = document.getElementById('api-key').value.trim();
-  const dot = document.getElementById('status-dot');
-  const txt = document.getElementById('status-text');
-  if (key.startsWith('sk-ant-') && key.length > 20) {
-    dot.style.background = '#10B981';
-    txt.textContent = 'API key active — ready to generate';
-    txt.style.color = '#10B981';
-  } else if (key.length > 0) {
-    dot.style.background = '#F59E0B';
-    txt.textContent = 'Key must start with sk-ant-...';
-    txt.style.color = '#F59E0B';
-  } else {
-    dot.style.background = '#EF4444';
-    txt.textContent = 'Enter API key to enable AI';
-    txt.style.color = 'var(--text4)';
-  }
-}
-
-function getKey() {
-  return document.getElementById('api-key').value.trim();
-}
+// ===== API KEY (server-managed) =====
+function checkApiKey() { /* no-op: server holds the key */ }
+function getKey() { return 'server'; }
 
 // ===== TOAST =====
 let toastTimer;
