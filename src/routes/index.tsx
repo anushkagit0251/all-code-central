@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,12 +21,10 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  useEffect(() => {
-    window.location.replace("/app.html");
-  }, []);
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background text-foreground">
-      <p>Loading PromptMaster AI…</p>
+    <div>
+      <h1>PromptMaster AI is Live 🚀</h1>
+      <p>Deployment successful!</p>
     </div>
   );
 }
