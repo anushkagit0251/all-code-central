@@ -954,26 +954,17 @@ async function streamClaude(prompt, targetId, systemPrompt = '', onComplete = nu
 
 // ===== NON-STREAMING (for JSON) =====
 async function callClaude(prompt, systemPrompt = '') {
-  const key = getKey();
-  if (!key) return null;
-  const body = {
-    model: 'claude-opus-4-6',
-    max_tokens: 2000,
-    messages: [{ role: 'user', content: prompt }]
-  };
-  if (systemPrompt) body.system = systemPrompt;
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
+  const messages = [];
+  if (systemPrompt) messages.push({ role: 'system', content: systemPrompt });
+  messages.push({ role: 'user', content: prompt });
+  const response = await fetch('/api/generate', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': key,
-      'anthropic-version': '2023-06-01',
-      'anthropic-dangerous-direct-browser-access': 'true'
-    },
-    body: JSON.stringify(body)
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ messages, stream: false })
   });
+  if (!response.ok) return null;
   const data = await response.json();
-  return data.content?.[0]?.text || null;
+  return data.choices?.[0]?.message?.content || null;
 }
 
 // ===== MODEL SELECTOR =====
